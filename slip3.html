@@ -1,0 +1,92 @@
+<!-- Using AngularJS display the 10 student details in Table format 
+(using ng-repeat directive use Array to store data) -->
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <body ng-app="myApp" ng-controller="StudController">
+    <h1>Displaying Students Details</h1>
+    <table border="9">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Class</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="x in StudDetails">
+        <td>{{x.rollno}}</td>
+        <td>{{x.name}}</td>  
+        <td>{{x.class}}</td>
+        <td>{{x.city}}</td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    var app = angular.module("myApp", []);
+    app.controller("StudController", function ($scope) {
+      $scope.StudDetails = [
+        {
+          rollno: 1,
+          name: "suresh sinde",
+          class: "fybba ca",
+          city: "pune",
+        },
+        {
+          rollno: 2,
+          name: "ramesh more",
+          class: "fybba ca",
+          city: "mumbai",
+        },
+        {
+          rollno: 3,
+          name: "rajesh jadhav",
+          class: "sybba ca",
+          city: "nashik",
+        },
+        {
+          rollno: 4,
+          name: "amol dubey",
+          class: "sybba ca",
+          city: "nagpur",
+        },
+        {
+          rollno: 5,
+          name: "sanjeev mishra",
+          class: "tybba ca",
+          city: "kanpur",
+        },
+        {
+          rollno: 6,
+          name: "rajeev mishra",
+          class: "sybba ca",
+          city: "lucknow",
+        },
+        {
+          rollno: 7,
+          name: "aniket bhosale",
+          class: "fybba ca",
+          city: "ahmednagar",
+        },
+        {
+          rollno: 8,
+          name: "aniket chavan",
+          class: "fybba ca",
+          city: "ahmednagar",
+        },
+        {
+          rollno: 9,
+          name: "abhay deshmukh",
+          class: "fybba ca",
+          city: "pune",
+        },
+        {
+          rollno: 10,
+          name: "ajay deshmukh",
+          class: "tybba ca",
+          city: "pune",
+        },
+      ];
+    });
+  </script>
+</html>

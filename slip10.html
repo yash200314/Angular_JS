@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="myApp">
+        <center><h2>HOTELS IN PUNE</h2></center>
+        <p><a href="#!">HOME Page</a></p>
+        <ul>
+            <li><a href="#!marriot">JW MARRIOTT</a></li>
+            <li><a href="#!royalorchit">ROYAL ORCHID</a></li>
+            <li><a href="#!lemontree">LEMON TREE</a></li>
+            <li><a href="#!tcr">THE CORINTHINAS</a></li>
+        </ul>
+        <div class="ng-view"></div>
+        <script>
+            var app=angular.module("myApp",["ngRoute"]);
+            app.config(function($routeProvider){
+                $routeProvider.when("/",{
+                    templateUrl:"home.html"
+                })
+                .when("/mariott",{
+                    templateUrl:"mariott.html"
+                })
+                .when("/royalorchid",{
+                    templateUrl:"royalorchid.html"
+                })
+                .when("/tcr",{
+                    templateUrl:"lemontree.html"
+                })
+                .when("/pride",{
+                    templateUrl:"pride.html"
+                })
+            })
+        </script>
+    </body>
+</html>

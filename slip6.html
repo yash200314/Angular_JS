@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="myApp">
+        <p>SYBBA_CA</p>
+        <p><a href="#">Main Page</a></p>
+        <ul>
+            <li><a href="#!dm">CA 301 DIGITAL MARKETING</a></li>
+            <li><a href="#!dm">CA 302 DATA STRUCTURE</a></li>
+            <li><a href="#!dm">CA 303 SOFTWARE ENGINEERING</a></li>
+            <li><a href="#!dm">CA 304 ANGULAR JS</a><br></li>
+            <li><a href="#!dm">CA 305 PHP</a><br></li>
+            <li><a href="#!dm">CA 306 BIGDATA</a><br></li>
+            <li><a href="#!dm">CA 301 BLOCKCHAIN</a><br></li>
+        </ul>
+        <div ng-view></div>
+        <script>
+            var app = angular.module("myApp",["ngRoute"]);
+            app.config(function($routeProvider){
+                $scopeProvider.when("/",{
+                    templateUrl:"home.html"
+                })
+                .when("/dm",{
+                    templateUrl:"digitalmarketing.html"
+                })
+                .when("/ds",{
+                    templateUrl:"datastructure.html"
+                })
+                .when("/se",{
+                    templateUrl:"softwareengg.html"
+                })
+                .when("/angular",{
+                    templateUrl:"angular.html"
+                })
+                .when("/php",{
+                    templateUrl:"Php.html"
+                })
+                .when("/bigdata",{
+                    templateUrl:"bigdata.html"
+                })
+                .when("/blockchain",{
+                    templateUrl:"blockchain.html"
+                })
+            });
+        </script>
+    </body>
+</html>
