@@ -9,43 +9,44 @@ ii. M.Sc.(CA)
 iii. MCA -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script>
-var app = angular.module("myApp", []);
-app.controller('userCtrl', ['$scope', function ($scope) {
-$scope.showCourses = function () 
-{
-$scope.ugcourse = [u
-{ id: 'i', courseName: 'BBA(CA)' },
-{ id: 'ii', courseName: 'BCA(Science' },
-{ id: 'iii', courseName: 'B.Sc(Computer Science' },
-];
-$scope.pgcourses = [
-{ id: 'i', courseName: 'M.Sc(Computer Science' },
-{ id: 'ii', courseName: 'M.Sc.(CA)' },
-{ id: 'iii', courseName: 'MCA' },
-];
-}
-}]);
-</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller('userCtrl', ['$scope', function ($scope) {
+			$scope.showCourses = function () {
+				$scope.ugCourse = [{ id: 'i', courseName: 'BBA(Ca)' },
+				{ id: 'ii', courseName: 'BCA(CA)' },
+				{ id: 'iii', courseName: 'B.Sc(Computer Science)' },];
+				$scope.pgCourse = [
+					{ id: 'i', courseName: 'M.Sc(computer Science)' },
+					{ id: 'ii', courseName: 'M.Sc(CA)' },
+					{ id: 'iii', courseName: 'MCA' },
+				];
+			}
+		}]);
+	</script>
 </head>
 <body ng-app="myApp" ng-controller="userCtrl">
-<form>
-<div ng-controller="userCtrl">
-UnderGraduate Courses<br>
-<div ng-repeat='x in ugcourse'>
-{{x.id}}
-{{x.courseName}}
-</div>
-Post Graduate Courses
-<div ng-repeat='x in pgcourses'>
-{{x.id}}
-{{x.courseName}}
-</div>
-</div>
-<input type="button" ng-click="showCourses()" value="Click Here"> </button>
-</form>
+	<form>
+		<div ng-controller="userCtrl">
+			UnderGraduate Courses<br>
+			<div ng-repeat='x in ugcourse'>
+				{{x.id}}
+				{{x.courseName}}
+			</div>
+			Post Graduate Courses
+			<div ng-repeat='x in pgcourses'>
+				{{x.id}}
+				{{x.courseName}}
+			</div>
+		</div>
+		<input type="button" ng-click="showCourses()" value="Click Here"> </button>
+	</form>
 </body>
+
 </html>

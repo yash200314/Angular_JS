@@ -4,34 +4,38 @@ using ng-click. And also Demonstrate ng-init, ng-bind directive of AngularJS.  -
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script>
-    //function
-var app = angular.module("myApp", []);
-app.controller('userCtrl', ['$scope', function ($scope) {
-$scope.showGames = function () 
-{
-$scope.games = [
-{ GameName: 'Cricket', PlayerName: 'sachin', GameType: 'outdoor' }, 
-{ GameName: 'Chess', PlayerName: 'V.Anand', GameType: 'Indoor' },
-{ GameName: 'Tennis', PlayerName: 'Pet Sampras', GameType: 'outdoor' }];
-}
-}]);
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        //function
+        var app = angular.module("myApp", []);
+        app.controller('userCtrl', ['$scope',function ($scope) 
+        {
+            $scope.showGames = function ()
+            {
+                $scope.games = 
+                [
+                    { GameName: 'Cricket', PlayerName: 'sachin', GameType: 'outdoor' },
+                    { GameName: 'Chess', PlayerName: 'V.Anand', GameType: 'Indoor' },
+                    { GameName: 'Tennis', PlayerName: 'Pet Sampras', GameType: 'outdoor'}
+                ];
+            }
+        }]);
+    </script>
 </head>
 <body ng-app="myApp" ng-controller="userCtrl">
-<form>
-<div ng-app="myApp" ng-init="Text='Displaying Games array Elements!'">
-<p ng-bind="Text"></p>
-</div>
-<div ng-controller="userCtrl">
-<div ng-repeat='game in games'>
-{{game.GameName}}
-{{game.PlayerName}}
-{{game.GameType}}
-</div>
-</div>
-<input type="button" ng-click="showGames()" value="Click Here"></button>
-</form>
+    <form>
+        <div ng-app="myApp" ng-init="Text='Displaying Games array Elements!'">
+            <p ng-bind="Text"></p>
+        </div>
+        <div ng-controller="userCtrl">
+            <div ng-repeat='game in games'>
+                {{game.GameName}}
+                {{game.PlayerName}}
+                {{game.GameType}}
+            </div>
+        </div>
+        <input type="button" ng-click="showGames()" value="Click Here"></button>
+    </form>
 </body>
+
 </html>
