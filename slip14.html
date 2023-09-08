@@ -1,0 +1,90 @@
+<!-- Using AngularJS Create a SPA to take the information of a customer for booking a plan 
+consisting of fields such as name, address, contact no., gender, Date of booking, 
+date of journey, no of passenger, name of passenger etc. Display the e –Ticket. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <title>Slip 14</title>
+</head>
+<body ng-app="mainApp" ng-controller="custController">
+    <h2>Customer Information for Plain Booking</h2>
+    <div>
+        <form name="form1">
+            <table border="4">
+                <tr>
+                    <td>Enter name of Customer</td>
+                    <td><input type="text" name="custname" ng-model="custname"></td>
+                </tr>
+                <tr>
+                    <td>Enter the address of the Customer</td>
+                    <td><input type="text" name="custaddr" ng-model="custaddr"></td>
+                </tr>
+                <tr>
+                    <td>Enter the contact no</td>
+                    <td><input type="number" name="custcontact" ng-model="custcontact"></td>
+                </tr>
+                <tr>
+                    <td>Enter the Gender</td>
+                    <td><input type="text" name="custgender" ng-model="custgender"></td>
+                </tr>
+                <tr>
+                    <td>Enter Date of Booking</td>
+                    <td><input type="date" name="custdob" ng-model="custdob"></td>
+                </tr>
+                <tr>
+                    <td>Enter the date of Journey</td>
+                    <td><input type="date" name="custdoj" ng-model="custdoj"></td>
+                </tr>
+                <tr>
+                    <td>Enter the no of passenger</td>
+                    <td><input type="number" name="custpass" ng-model="custpass"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="Display" ng-click="isShowHide('show')"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div ng-show="showval">
+        <br><br>
+        <h3>eTicket of Passenger for Plain</h3><br><br>
+        <form name="form2" controller="custController">
+            <table border="4">
+                <thead>
+                    <td>name</td>
+                    <td>address</td>
+                    <td>contactus</td>
+                    <td>gender</td>
+                    <td>Date of Booking</td>
+                    <td>Date of Journey</td>
+                    <td>No.of passengers</td>
+                </thead>
+                <tr>
+                    <td>{{custname}}</td>
+                    <td>{{custaddr}}</td>
+                    <td>{{custcontact}}</td>
+                    <td>{{custgender}}</td>
+                    <td>{{custdob}}</td>
+                    <td>{{custdoj}}</td>
+                    <td>{{custpass}}</td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        var mainApp = angular.module("mainApp", []);
+        $scope.showval = false;
+        $scope.isShowHide = function (param) {
+            if (param == "show") {
+                $scope.showval = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

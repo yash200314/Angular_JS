@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slip 17</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+
+<body ng-app="mainApp" ng-controller="FilterController">
+    <div ng-controller="FilterController">
+        <div>
+            Enter the Character
+            <input type="text" name="searchname" ng-model="searchname">
+            <div ng-hide="users"></div>
+            <table>
+                <tr ng-repeat="a in users | filter : searchname" ng-show="searchname">
+                    <td>{{a.name}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        var mainApp = angular.module("mainApp", []);
+        mainApp.controller("FilterController", function ($scope) {
+            $scope.users = [
+                {name: "Samarth kulkarni",},
+                {name: "abhay deshmukh",}, 
+                {name: "ramesh jadhav",}, 
+                {name: "sachin dubey",}, 
+                {name: "Ajay kamthe",}];
+        })
+    </script>
+</body>
+</html>

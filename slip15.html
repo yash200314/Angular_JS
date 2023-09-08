@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slip 15</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-contoller="busController as bus">
+    <h2>Bus Reservation System</h2>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Enter the Name of Passenger</td>
+                <td><input type="text" name="name1" ng-model="bus.name"></td>
+            </tr>
+            <tr>
+                <td>Enter your Address</td>
+                <td><input type="text" name="baddress" ng-model="bus.address"></td>
+            </tr>
+            <tr>
+                <td>Enter the contact No</td>
+                <td><input type="text" name="bcontactno" ng-model="buscontactno"></td>
+            </tr>
+            <tr>
+                <td>Enter the source Station</td>
+                <td><select name="source" ng-model="bus.source">
+                    <option>Pune</option>
+                    <option>Mumbai</option>
+                    <option>Nashik</option>
+                    <option>Kolhapur</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td>Enter the destination Station</td>
+                <td><select name="dest" ng-model="bus.dest1">
+                    <option>Pune</option>
+                    <option>Mumbai</option>
+                    <option>Nashik</option>
+                    <option>Kolhapur</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Enter the date of booking</td>
+                <td><input type="date" name="doj" ng-model="bus.doj"></td>
+            </tr>
+            <tr>
+                <td>Enter the no of Passenger</td>
+                <td><input type="number" name="noofpass" ng-model="bus.noofpass"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Display" ngclick="isShow('show')"></td>
+            </tr>
+        </table>
+    </div>
+    <div ng-show="showval">
+        <br><br>
+        e-Ticket of Person<br><br>
+        <table border="5">
+            <thead>
+                <td>name</td>
+                <td>address</td>
+                <td>source</td>
+                <td>destination</td>
+                <td>Date of booking</td>
+                <td>date of journey</td>
+                <td>number of Passenger</td>
+            </thead>
+            <tr>
+                <td>{{bus.name}}</td>
+                <td>{{bus.address}}</td>
+                <td>{{bus.contactno}}</td>
+                <td>{{bus.source}}</td>
+                <td>{{bus.dest1}}</td>
+                <td>{{bus.dob}}</td>
+                <td>{{bus.doj}}</td>
+                <td>{{bus.noofpass}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var myApp = angular.module("myApp",[]);
+        myApp.controller('busController',function($scope){
+            $scope.showval = false;
+            $scope.isShow = function(param){
+                if(param=="show"){
+                    $scope.showval = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

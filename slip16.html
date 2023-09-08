@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slip16</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller('studCtrl',['$scope',function($scope){
+            $scope.showStudent = function(){
+                $scope.stud = [
+                    {name:'suresh',city:'pune'},
+                    {name:'ramesh',city:'pune'},
+                    {name:'rajesh',city:'mumbai'},
+                    {name:'sachin',city:'mumbai'},
+                ];
+            }
+        }]);
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="studCtrl">
+    <form>
+        <div ng-controller="studCtrl">
+            List of student living in pune<br>
+            <table border="2">
+                <tr ng-repeat="x in stud | filter:'pune'">
+                    <td>{{x.name}}</td>
+                    <td>{{x.city}}</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <input type="button" ng-click="showStudent()" value="click Here"></button>
+        </div>
+    </form>
+</body>
+</html>

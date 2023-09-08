@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slip19</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller('empCtrl', ['$scope', function ($scope) {
+            $scope.showEmployee = function () {
+                $scope.emp = [ 
+                    { name: 'suresh', city: 'pune', salary: '5000'},
+                    { name: 'ramesh', city: 'pune', salary: '5000'},
+                    { name: 'rajesh', city: 'mumbai', salary: '6000'},
+                    { name: 'sachine', city: 'mumbai', salary: '7000'},
+                ];
+            }
+        }]);
+    </script>
+</head>
+
+<body ng-app="myApp" ng-controller="empCtrl">
+    <form>
+        <div ng-controller="empCtrl">
+            List of employee order by salary<br>
+            <table border="4">
+                <tr ng-repeat="x in emp| orderBy:'salary'">
+                    <td>{{x.name}}</td>
+                    <td>{{x.city}}</td>
+                    <td>{{x.salary}}</td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <input type="button" ng-click="showEmployee()" value="click here"></button>
+    </form>
+</body>
+
+</html>

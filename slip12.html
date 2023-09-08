@@ -1,0 +1,73 @@
+<!-- Using AngularJS Create a SPA for customer registration visiting a departmental store. 
+Form should consists of fields such as name, contact no., gender, favourite 
+item(to be selected from a list of items with Quantity) and suggestions.  
+Display the Bill with total no of items selected and total amount to be paid.(use filter)	 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slip12</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script>
+        var invoice = angular.module('invoice', []);
+        invoice.controller('InvoiceController', function ($scope) {
+            $scope.invoice = {
+                items: [{
+                    name: "",
+                    contact: "",
+                    gender: "",
+                    favorite: "",
+                }]
+            };
+            $scope.total = function () {
+                var total = 0;
+                angular.forEach($scope.invoice.items, function (items) {
+                    total += item.qty * item.price;
+                })
+                return total;
+            }
+        });
+    </script>
+</head>
+</html>
+<div ng-app="invoice">
+    <h1>Customer Invoice Example</h1>
+    </section>
+    <section class="row" ng-controller="InvoiceController">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ContactNo</th>
+                    <th>Gender</th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in invoice.items">
+                    <td><input type="text" ng-model="item.name" /></td>
+                    <td><input type="number" ng-model="item.ContactNo" /></td>
+                    <td><input type="text" ng-model="item.gender" /></td>
+                    <td><select ng-model="item.favorite" id="mySelect">
+                            <option>TShirt</option>
+                            <option>Jeans</option>
+                            <option>Watch</option>
+                            <option>Shoes</option>
+                        </select></td>
+                    <td><input type="number" name="price" ng-model="item.price"></td>
+                    <td><input type="number" ng-model="item.qty"></td>
+                    <td>{{item.qty * item.price}}>Rs</td>
+                    <td></td>
+                    <td>Amount to be Paid:</td>
+                    <td>{{total()}}>RS</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
